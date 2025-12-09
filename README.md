@@ -41,6 +41,57 @@ A minimal React + TypeScript application for displaying wallet activity across m
 - `src/components/*` — UI components
 - `src/redux/store.ts` — Redux store configuration
 
+## Architecture
+
+├── eslint.config.js
+├── index.html
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vercel.json
+├── vite.config.ts
+│
+├── public/
+│   └── ... (static assets)
+│
+└── src/
+    ├── App.css
+    ├── App.tsx
+    ├── index.css
+    ├── main.tsx
+    │
+    ├── components/
+    │   ├── NetworkSelector.tsx
+    │   ├── TransactionList.tsx
+    │   ├── WalletConnector.tsx
+    │   └── common/
+    │       └── Loader.tsx
+    │
+    ├── data/
+    │   └── dummyTransfers.json
+    │
+    ├── redux/
+    │   ├── store.ts
+    │   └── slice/
+    │       ├── themeSlice.ts
+    │       ├── walletSlice.ts
+    │       └── transactions/
+    │           └── txSlice.ts
+    │
+    ├── services/
+    │   ├── alchemy.ts
+    │   └── price.ts
+    │
+    ├── types/
+    │   ├── ethereum.d.ts
+    │   └── types.ts
+    │
+    └── utils/
+        ├── ethersProvider.ts
+        └── format.ts
+
 ## Next Steps / Improvements
 - Proper token amount formatting using token decimals (via `ethers.Contract`) and ERC20 USD lookup per token.
 - Caching (localStorage or IndexedDB) to reduce RPC calls and avoid rate limits.
