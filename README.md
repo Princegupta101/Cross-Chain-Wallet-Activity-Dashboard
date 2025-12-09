@@ -20,12 +20,6 @@ A minimal React + TypeScript application for displaying wallet activity across m
 - **Alchemy**: The `alchemy_getAssetTransfers` method offers a convenient cross-token transfer feed via REST JSON-RPC.
 - **CoinGecko**: Public API for native token USD prices; suitable for this assessment.
 
-## Tradeoffs and Limitations
-- ERC20 token amounts and decimals are simplified; accurate formatting requires reading token decimals via `ethers.Contract`.
-- CoinGecko's free API is subject to rate limits; production use should consider paid price feeds or caching.
-- Only native token USD conversion is implemented; ERC20 token USD conversion is a future improvement.
-- Alchemy's free plan may also be rate-limited; the UI displays errors when this occurs.
-- Network switching in MetaMask is not triggered automatically; chainId is read on change. EIP-3085 requests can be added to prompt switching.
 
 ## How to Run
 1. Copy `.env.example` to `.env.local` and set `VITE_ALCHEMY_KEY`.
@@ -33,9 +27,18 @@ A minimal React + TypeScript application for displaying wallet activity across m
 3. Start the app with `npm run dev`
 4. Open [http://localhost:5173](http://localhost:5173)
 
+**Key Directories:**
+- `components/`: All UI building blocks, including wallet and transaction views.
+- `redux/`: Centralized state management using Redux Toolkit.
+- `services/`: API helpers for Alchemy and CoinGecko.
+- `types/`: TypeScript type definitions for strong typing.
+- `utils/`: Utility functions for formatting and provider setup.
+- `data/`: Static data for development/testing.
+
 ## File Map
 - `src/redux/slice/walletSlice.ts` — wallet state management
 - `src/redux/slice/transactions/txSlice.ts` — transaction fetching logic
+- `src/redux/slice/themeSlice.ts` — theme logic 
 - `src/services/alchemy.ts` — Alchemy RPC helpers
 - `src/services/price.ts` — CoinGecko price helper
 - `src/components/*` — UI components
@@ -43,36 +46,36 @@ A minimal React + TypeScript application for displaying wallet activity across m
 
 ## Architecture
 
-├── eslint.config.js
-├── index.html
-├── package.json
-├── README.md
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vercel.json
-├── vite.config.ts
+The project is organized for clarity and scalability:
+
+```
+├── eslint.config.js           # ESLint configuration
+├── index.html                 # Main HTML entry point
+├── package.json               # Project dependencies and scripts
+├── README.md                  # Project documentation
+├── tsconfig*.json             # TypeScript configuration files
+├── vercel.json                # Vercel deployment config
+├── vite.config.ts             # Vite build config
 │
-├── public/
-│   └── ... (static assets)
+├── public/                    # Static assets (favicon, images, etc.)
 │
-└── src/
-    ├── App.css
-    ├── App.tsx
-    ├── index.css
-    ├── main.tsx
+└── src/                       # Application source code
+    ├── App.css                # Global app styles
+    ├── App.tsx                # Main React component
+    ├── index.css              # Tailwind and global styles
+    ├── main.tsx               # React entry point
     │
-    ├── components/
+    ├── components/            # Reusable UI components
     │   ├── NetworkSelector.tsx
     │   ├── TransactionList.tsx
     │   ├── WalletConnector.tsx
     │   └── common/
     │       └── Loader.tsx
     │
-    ├── data/
+    ├── data/                  # Static/dummy data for development
     │   └── dummyTransfers.json
     │
-    ├── redux/
+    ├── redux/                 # Redux state management
     │   ├── store.ts
     │   └── slice/
     │       ├── themeSlice.ts
@@ -80,22 +83,16 @@ A minimal React + TypeScript application for displaying wallet activity across m
     │       └── transactions/
     │           └── txSlice.ts
     │
-    ├── services/
+    ├── services/              # API and external service helpers
     │   ├── alchemy.ts
     │   └── price.ts
     │
-    ├── types/
+    ├── types/                 # TypeScript type definitions
     │   ├── ethereum.d.ts
     │   └── types.ts
     │
-    └── utils/
+    └── utils/                 # Utility functions
         ├── ethersProvider.ts
         └── format.ts
-
-## Next Steps / Improvements
-- Proper token amount formatting using token decimals (via `ethers.Contract`) and ERC20 USD lookup per token.
-- Caching (localStorage or IndexedDB) to reduce RPC calls and avoid rate limits.
-- Paginated history view and "Load more" functionality.
-- Unit tests for slices and components (Jest + React Testing Library).
-- Add dark mode, programmatic chain switching (EIP-3085), and wallet fallback (WalletConnect).
+```
 
