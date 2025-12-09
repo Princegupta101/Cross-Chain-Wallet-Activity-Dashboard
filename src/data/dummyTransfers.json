@@ -1,0 +1,84 @@
+[
+  {
+    "hash": "0xabc123",
+    "from": "0x1111111111111111111111111111111111111111",
+    "to": "0x2222222222222222222222222222222222222222",
+    "asset": "ETH",
+    "value": "500000000000000000",
+    "category": "external",
+    "metadata": {
+      "blockTimestamp": "2024-06-01T12:00:00Z"
+    }
+  },
+  {
+    "hash": "0xdef456",
+    "from": "0x2222222222222222222222222222222222222222",
+    "to": "0x1111111111111111111111111111111111111111",
+    "asset": "ETH",
+    "value": "1200000000000000000",
+    "category": "external",
+    "metadata": {
+      "blockTimestamp": "2024-06-02T15:30:00Z"
+    }
+  },
+  {
+    "hash": "0xghi789",
+    "from": "0x3333333333333333333333333333333333333333",
+    "to": "0x1111111111111111111111111111111111111111",
+    "asset": "MATIC",
+    "value": "100000000000000000000",
+    "category": "erc20",
+    "metadata": {
+      "blockTimestamp": "2024-06-03T09:45:00Z"
+    }
+  },
+  {
+    "hash": "0xjkl012",
+    "from": "0x4444444444444444444444444444444444444444",
+    "to": "0x1111111111111111111111111111111111111111",
+    "asset": "USDC",
+    "value": "25000000",
+    "category": "erc20",
+    "metadata": {
+      "blockTimestamp": "2024-06-04T11:20:00Z"
+    }
+  },
+  {
+    "hash": "0xmnq345",
+    "from": "0x1111111111111111111111111111111111111111",
+    "to": "0x5555555555555555555555555555555555555555",
+    "asset": "NFT",
+    "tokenId": "12345",
+    "category": "erc721",
+    "metadata": {
+      "blockTimestamp": "2024-06-05T14:00:00Z",
+      "tokenName": "Cool NFT",
+      "tokenImage": "https://via.placeholder.com/40"
+    }
+  },
+  {
+    "hash": "0xopq678",
+    "from": "0x6666666666666666666666666666666666666666",
+    "to": "0x1111111111111111111111111111111111111111",
+    "asset": "NFT",
+    "tokenId": "67890",
+    "category": "erc1155",
+    "value": "3",
+    "metadata": {
+      "blockTimestamp": "2024-06-06T16:30:00Z",
+      "tokenName": "Multi NFT",
+      "tokenImage": "https://via.placeholder.com/40"
+    }
+  },
+  {
+    "hash": "0xrst901",
+    "from": "0x1111111111111111111111111111111111111111",
+    "to": "0x1111111111111111111111111111111111111111",
+    "asset": "ETH",
+    "value": "100000000000000000",
+    "category": "internal",
+    "metadata": {
+      "blockTimestamp": "2024-06-07T18:00:00Z"
+    }
+  }
+]
